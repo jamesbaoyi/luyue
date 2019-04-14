@@ -4,18 +4,6 @@
 
 - 首先要感谢两位大神，该项目的想法来源自[tale](https://github.com/otale/tale)和[MyBlog](https://github.com/JayTange/My-Blog)，本项目的想法。
 
-- 做了一些改造，增加了一些功能和一些代码的重构，并且更换了博客主题。
-
-- 关于项目，对于开发的练手项目，能够工程化，严谨一些。
-
-- 关于文档，本文主要中从项目需求，项目设计的方式来阐述.
-
-- **如何从零开始**，使用springboot开发项目。
-
-- 记录一些在开发过程中遇到的一些问题，总结开发技巧
-
-**接下来，会以需求和设计方式来阐述**
-
 # 效果图
 - 首页展示
 ![alt](http://www.janti.cn/upload/2018/05/q2v7ug8ml6isgp93lhij8pvqlt.png)
@@ -26,13 +14,6 @@
 - 文章管理
 ![alt](http://www.janti.cn/upload/2018/05/2roqtej4umhclo0rta76cs8eed.png)
 
-# 项目需求
-## 项目背景
-对于刚学习springboot的同学，最好的就是拿一个项目练练手。在编码过程中遇到的问题并解决，这都是宝贵的经验。
-用springboot开发的博客系统，简单而且实用，适合做练手项目。
-
-## 功能需求
-### 界面需求
 #### 主页
 - 博客汇总，以列表加图片的形式展示
 - 能够以分类的方式查看文章
@@ -149,65 +130,6 @@
 ## 打包、部署和运行
  - 本项目采用springboot的maven插件进行打包，打成jar形式
  - 部署方式：使用**nohub java -jar xxx.jar &**的方式，启动项目
-
-
-## 数据设计
-
-用户表：t_users
-
- 名称 | 类型 | 长度 | 主键 | 非空 | 描述 
-------- | ------- | ------- | ------- | ------- | -------  
-uid| int | 10|  true | true  |主键，自增
-username | varchar | 32  |false | false | 用户名
-password | varchar | 64  |false | false | 密码
-email| varchar | 200  |false | false | 邮件地址
-creted | int | 10  |false | false | 创建时间
-
-用户表主要管理后台管理用户。
-
-文章表：t_contents
-
- 名称 | 类型 | 长度 | 主键 | 非空 | 描述 
-------- | ------- | ------- | ------- | ------- | -------  
-cid| int | 10|  true | true  |主键,自增
-title| varchar | 200  |false | false | 文章标题
-slug | varchar | 200  |false | false | url地址
-creted | int | 10  |false | false | 创建时间
-modified| int | 10  |false | false | 修改时间
-content | text  |无限制| false | false| 文章内容
-author_id| int | 10  |false | false | 作者ID
-type| varchar| 16  |false | false | 文章类型
-status | varchar | 16  |false | false | 文章状态
-categories| varchar| 200|false | false | 分类
-thumbImg| varchar| 512|false | false | 缩略图地址
-hits| int | 10 |false | false | 文章点击量
-comments_num|int|10 |false | false |评论数量
-allow_comment|int| 1 |false | false |允许评论
-
-主要管理文章内容，外键为cid
-
-标签表：t_metas
-
- 名称 | 类型 | 长度 | 主键 | 非空 | 描述 
-------- | ------- | ------- | ------- | ------- | -------  
-mid| int | 10|  true | true  |主键，自增
-name | varchar | 200 |false | false | 名称
-slug| varchar | 200 |false | false | 说明
-type| varchar | 200  |false | false | 类型
-description|varchar| 200|false|false|描述
-sort|int| 10|false|false|排序
-parent|int| 10|false|false|父标签
-
-管理标签信息，外键为mid
-
-文章标签关系表：t_relationships
-
- 名称 | 类型 | 长度 | 主键 | 非空 | 描述 
-------- | ------- | ------- | ------- | ------- | -------  
-cid| int | 10|  false| false |组合主键，用户ID
-uid | int| 10  |false| false |组合主键，标签ID
-
-记录文章和分类的关系，多对多表
 
 ## 性能与可靠性
 ### 性能设计
