@@ -36,40 +36,26 @@
 
     <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
         <div class="blog-sidebar-widget blog-bor">
-            <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+            <h2 class="blog-text-center blog-title"><span>公司简介</span></h2>
             <img th:src="@{/jantent/assets/img/f161.jpg}" alt="about me" class="blog-entry-img"/>
             <p>
-                Java后台开发
+                陕西陆跃建筑装饰工程有限责任公司
             </p>
-            <p>个人博客小站，主要发表关于Java,springboot,springcloud,thrift等相关文章</p>
+            <p style="font-size: 14px;text-align: left">
+                &nbsp;&nbsp;&nbsp;&nbsp;室内外装饰工程、灯光音响安装工程、园林景观工程、绿化工程、钢结构工程、网络工程、幕墙工程、木结构工程、道路工程、不锈钢铁艺工程、铝合金工程、电器化自动安装工程、消防工程、房屋建筑工程、通风工程、户外广告工程、彩钢工程的设计与施工；建筑材料的销售。（依法须经批准的项目，经相关部门批准后方可开展经营活动
+            </p>
         </div>
         <div class="blog-sidebar-widget blog-bor">
-            <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+            <h2 class="blog-text-center blog-title"><span>联系我们</span></h2>
             <p>
-                <a th:href="@{https://github.com/JayTange}"><span
-                        class="am-icon-github am-icon-fw blog-icon"></span></a>
-                <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                公司电话：15091890735<br>
+                公司地址：陕西省西安市雁塔区
             </p>
         </div>
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
             <h2 class="blog-title"><span>TAG cloud</span></h2>
             <div class="am-u-sm-12 blog-clear-padding">
-                <th:block th:each="c : ${categories}">
-                    <th:block th:if="${c.name == '默认分类'}">
-                        <a th:href="${commons.showCategoryUrl(c)}" class="blog-tag">
-                            <th:block th:text="${c.name}"/>
-                            <th:block th:text="' ('+${c.count}+')'"/>
-                        </a>
-                    </th:block>
-                    <th:block th:unless="${c.name == '默认分类'}">
-                        <a th:href="${commons.showCategoryUrl(c)}" class="blog-tag">
-                            <th:block th:text="${c.name}"/>
-                            <th:block th:text="' ('+${c.count}+')'"/>
-                            <span class="caret"></span>
-                        </a>
-                    </th:block>
 
-                </th:block>
             </div>
         </div>
     </div>
